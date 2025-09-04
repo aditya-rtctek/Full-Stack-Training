@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini Project</title>
+  <style>
+    body{
+      text-align: center;
+      margin-top: 50px;
+    }
+    button{
+      padding: 8px 15px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Poc</h2>
+  <button onclick="getHello()">Hello</button>
+  <button onclick="getTime()">Time</button>
+  <div id="out"></div>
+
+  <script>
+    async function getHello(){
+      const r = await fetch("/hello")
+      const text = await r.text()
+      document.getElementById("out").innerText = text
+    }
+    async function getTime(){
+      const r = await fetch("/time")
+      const text = await r.text()
+      document.getElementById("out").innerText = "Time: " + text
+    }
+  </script>
+</body>
+</html>
